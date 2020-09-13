@@ -160,30 +160,19 @@ alias prikey="more ~/.ssh/id_ed25519 | xclip -selection clipboard | echo '=> Pri
 # Get only headers from url
 alias curlhead="curl -X HEAD -I"
 
-# Tools 
-
-# bat is batcat by default on ubuntu if installed with apt
-alias bat=batcat
-
-
 # Python aliases
-alias python=python3alias ls=exa
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
-alias cat=bat
+alias python="python3"
+
+# if exa is installed replace ls with it
+if which exa &>/dev/null; then
+	alias ls=exa
+fi
+
+# if batcat (bat) is installed replace cat with it
+if which batcat &>/dev/null; then
+	# bat is batcat by default on ubuntu if installed with apt
+	alias bat=batcat
+	alias cat=batcat
+fi
+
+

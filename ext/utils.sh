@@ -156,6 +156,10 @@ print_in_red() {
     print_in_color "$1" 1
 }
 
+print_error(){
+    print_in_red "$@"
+}
+
 print_error_stream() {
     while read -r line; do
         print_in_red "↳ ERROR: $line"

@@ -58,10 +58,15 @@ test: shellcheck ## Runs all the tests on the files in the repository.
 
 .PHONY: programs
 programs: ## Installs default programs for ubuntu
-	for file in $(shell find $(CURDIR)/ext -type f); do \
-		chmod +x $$file; \
-	done
 	$(CURDIR)/ext/install.sh
+
+.PHONY: check
+check: # run the make script in a new ubuntu container
+	docker run --rm -it \
+		--name df-test \
+		-v $(CURDIR):/usr/src \
+		--workdir /usr/src \
+		m0r13n/dftest:1.1 ./test.sh
 
 
 # if this session isn't interactive, then we don't want to allocate a
@@ -78,7 +83,7 @@ shellcheck: ## Runs the shellcheck tests on the scripts.
 		--name df-shellcheck \
 		-v $(CURDIR):/usr/src:ro \
 		--workdir /usr/src \
-		jess/shellcheck ./test.sh
+		jess/shellcheck ./spellcheck.sh
 
 .PHONY: help
 help:

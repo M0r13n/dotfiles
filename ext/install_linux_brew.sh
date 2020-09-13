@@ -11,4 +11,5 @@ if execute "install_brew" 'Installing brew'; then
     print_success "Installed Linux-Brew"
 else
     print_error "Linux-Brew failed with $?"
+    exit 1
 fi
