@@ -48,8 +48,14 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 ### Running the tests
 
 The tests use [shellcheck](https://github.com/koalaman/shellcheck). You don't
-need to install anything. They run in a container.
+need to install anything. They run in a container. 
 
+In order so run spellcheck, enter:
 ```console
 $ make test
+```
+
+In order so run try to apply all changes to a clean Ubuntu run:
+```console
+$ make check
 ```
