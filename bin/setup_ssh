@@ -1,0 +1,29 @@
+#!/bin/bash
+
+get_mail(){
+    read -rp "Enter SSH mail: " user_mail
+}
+
+setup_ssh(){
+    get_mail
+    if [ ${#user_mail} ]; then
+        ssh-keygen -t rsa -b 4096 -C "$user_mail"
+    else
+        echo "Invalid Mail"
+        exit 1
+    fi
+    eval "$(ssh-agent -s)"
+    ssh-add "$HOME/.ssh/id_rsa"
+    echo "You public key can be found here: $HOME/.ssh/id_rsa.pub"
+    unset get_mail
+    exit 0
+}
+
+# Check if keys exist
+if ls -al "$HOME/.ssh" &>/dev/null
+then
+    # there are some ssh files present -> abort
+    echo "There are present files inside ~/.ssh. Aborting"
+else
+    setup_ssh
+fi
