@@ -1,6 +1,9 @@
 # dotfiles 
 
-This repo is a fork of [Jess's repo](https://github.com/jessfraz/dotfiles), which was a great foundation. 
+This repo is heavily inspired by:
+ -  [Jess's repo](https://github.com/jessfraz/dotfiles)
+ -  [Alrra's repo](https://github.com/alrra/dotfiles)
+ -  [Mathias's repo](https://github.com/mathiasbynens/dotfiles)
 
 
 **Table of Contents**
