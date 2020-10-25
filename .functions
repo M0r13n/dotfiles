@@ -477,18 +477,19 @@ lcmd() {
 
 # Ask user for password
 readPassword() {
-  p=1
+  local p=1
   echo -n "Enter password:" >/dev/stderr
-  read -s p
+  read -r -s p
   echo >/dev/stderr
   echo "$p"
 }
 
 # Set proxy as env var
 set_proxy(){
-  port="8080"
-  proxy="192.168.101.72"
-  user="richter"
+  local port="8080"
+  local proxy="192.168.101.72"
+  local user="richter"
+  local password
   password="$(readPassword)"
   export http_proxy="http://$user:$password@$proxy:$port"
   export https_proxy="http://$user:$password@$proxy:$port"
