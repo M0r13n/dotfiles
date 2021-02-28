@@ -3,7 +3,7 @@ set -e
 set -o pipefail
 
 assert_installed(){
-	declare -a -r progs=("python3" "curl" "batcat" "jq" "brew")
+	declare -a -r progs=("python3" "curl" "batcat" "jq")
 	for i in "${progs[@]}"
 	do
 		if ! which "$i" &>/dev/null; then

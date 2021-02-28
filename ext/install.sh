@@ -15,8 +15,7 @@ install_package "JQ: Command-line JSON processor" "jq"
 install_package "BAT: A cat(1) clone with wings." "bat"
 install_package "GCC" "gcc"
 install_package "Bash Autocompletion" "bash-completion"
+install_package "Install Keychain" "keychain"
 
-./install_linux_brew.sh
+
 ./install_python.sh
-./install_exa.sh
-

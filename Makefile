@@ -33,9 +33,6 @@ dotfiles: ## Installs the dotfiles.
 
 	# symlink bash_profile
 	ln -sf $(CURDIR)/.bash_profile $(HOME)/.profile;
-
-	# add a default ssh config
-	ln -sf $(CURDIR)/.ssh/config  $(HOME)/.ssh/config
 	
 
 

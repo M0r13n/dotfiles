@@ -45,7 +45,3 @@ fi
 
 # set xdg data dirs for dmenu to source
 export XDG_DATA_DIRS=/usr/share/
-
-
-# Linux brew
-export PATH="/home/linuxbrew/.linuxbrew/bin/:$PATH"
