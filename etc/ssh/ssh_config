@@ -18,6 +18,9 @@
 
 Include /etc/ssh/ssh_config.d/*.conf
 
+AddKeysToAgent yes
+# IgnoreUnknown UseKeychain
+# UseKeychain yes
 
 # Host foo
 #   HostName foo.com
@@ -56,8 +59,3 @@ Host *
     SendEnv LANG LC_*
     HashKnownHosts yes
     GSSAPIAuthentication yes
-    AddKeysToAgent yes
-
-    # Add keys to keychain
-    IgnoreUnknown UseKeychain
-    UseKeychain yes
