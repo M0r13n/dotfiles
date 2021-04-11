@@ -1,10 +1,7 @@
 SHELL := bash
 
 .PHONY: all
-all: bin usr dotfiles etc ## Installs the bin and etc directory files and the dotfiles.
-
-.PHONY: full
-full: all programs
+all: bin usr dotfiles etc
 
 .PHONY: bin
 bin: ## Installs the bin directory files.
@@ -55,11 +52,6 @@ usr: ## Installs the usr directory files.
 
 .PHONY: test
 test: shellcheck ## Runs all the tests on the files in the repository.
-
-
-.PHONY: programs
-programs: ## Installs default programs for ubuntu
-	$(CURDIR)/ext/install.sh
 
 .PHONY: check
 check: # run the make script in a new ubuntu container
