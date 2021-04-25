@@ -1,3 +1,4 @@
+# shellcheck disable=SC2034
 shell=bash
 disable=SC1090  # Not fixable (ever?)
 disable=SC1091  # not really fixable usually (ever?)
