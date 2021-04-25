@@ -18,6 +18,12 @@
 	# Clone a repository including all submodules.
 	c = clone --recursive
 
+	# Shorthand for git checkout
+	co = checkout
+
+	# Shorthand for git commit
+	ci = commit
+	
 	# Commit all changes.
 	ca = !git add -A && git commit -av
 
@@ -65,6 +71,10 @@
 
 	# Show the user email for the current repository.
 	whoami = config user.email
+
+	# Display the history in for nicely formatted way
+	# Format without colors would be: %h %ad | %s%d [%an]
+	hist = log --pretty=format:'%Cred%h%Creset %Cgreen%ad%Creset | %Cblue%s%d%Creset [%C(Yellow)yello%an%Creset]' --graph --date=short
 
 [apply]
 
@@ -177,5 +187,5 @@
 
 	defaultBranch = main
 [user]
+	email = git@leonmortenrichter.de
 	name = Leon Morten Richter
-	email = github@leonmortenrichter.de
