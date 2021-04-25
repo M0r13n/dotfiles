@@ -74,7 +74,7 @@
 
 	# Display the history in for nicely formatted way
 	# Format without colors would be: %h %ad | %s%d [%an]
-	hist = log --pretty=format:'%Cred%h%Creset %Cgreen%ad%Creset | %Cblue%s%d%Creset [%C(Yellow)yello%an%Creset]' --graph --date=short
+	hist = log --pretty=format:'%Cred%h%Creset %Cgreen%ad%Creset | %Cblue%s%d%Creset [%C(Yellow)%an%Creset]' --graph --date=short
 
 [apply]
 
@@ -187,5 +187,5 @@
 
 	defaultBranch = main
 [user]
-	email = git@leonmortenrichter.de
+	email = github@leonmortenrichter.de
 	name = Leon Morten Richter
