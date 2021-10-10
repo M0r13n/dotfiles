@@ -471,28 +471,16 @@ lcmd() {
 	history | grep "$1"
 }
 
+# Install Appimages
+# Makes an Appimage executable and places it in ${HOME}/Applications/
+install-appimage() {
+	local file="$1"
+	if [[ -z $file ]] || [[ ! -f "$file" ]]; then
+		echo "Please specifiy an Appimage file."
+		return 1
+	fi
 
-# Proxy stuff - start
-#!/bin/bash
-
-# Ask user for password
-readPassword() {
-  local p=1
-  echo -n "Enter password:" >/dev/stderr
-  read -r -s p
-  echo >/dev/stderr
-  echo "$p"
+	mkdir -p "${HOME}/Applications/"
+	chmod a+x "$file"
+	mv "$file" "${HOME}/Applications/"
 }
-
-# Set proxy as env var
-set_proxy(){
-  local port="8080"
-  local proxy="192.168.101.72"
-  local user="richter"
-  local password
-  password="$(readPassword)"
-  export http_proxy="http://$user:$password@$proxy:$port"
-  export https_proxy="http://$user:$password@$proxy:$port"
-}
-
-# Proxy stuff - end 
