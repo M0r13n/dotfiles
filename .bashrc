@@ -110,10 +110,6 @@ if command -v gpg-connect-agent >/dev/null; then
 		gpg-connect-agent /bye >/dev/null 2>&1
 	fi
 	gpg-connect-agent updatestartuptty /bye >/dev/null
-	# use a tty for gpg
-	# solves error: "gpg: signing failed: Inappropriate ioctl for device"
-	GPG_TTY="$(tty)"
-	export GPG_TTY
 	# Set SSH to use gpg-agent
 	unset SSH_AGENT_PID
 	if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
