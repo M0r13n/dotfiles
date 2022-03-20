@@ -1,1 +1,4 @@
 # Extra things that should be loaded during init
+
+# Force pip to always use an virtual environment
+export PIP_REQUIRE_VIRTUALENV=true

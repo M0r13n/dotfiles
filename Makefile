@@ -2,6 +2,7 @@ SHELL := bash
 
 .PHONY: all
 all: bin usr dotfiles etc
+	sudo apt install python3-pip python3-argcomplete
 
 .PHONY: bin
 bin: ## Installs the bin directory files.
@@ -30,7 +31,6 @@ dotfiles: ## Installs the dotfiles.
 
 	# symlink bash_profile
 	ln -sf $(CURDIR)/.bash_profile $(HOME)/.profile;
-	
 
 
 .PHONY: etc

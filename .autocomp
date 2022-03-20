@@ -1,0 +1,19 @@
+#!/bin/bash
+# Autocompletion for Python programs.
+# Autocompletion is based on the argcomp module.
+# You need to install the following Python modules:
+#   - python3-pip
+#   - python3-argcomplete
+
+# pip bash completion start
+_pip_completion()
+{
+    COMPREPLY=( "$( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 2>/dev/null )" )
+}
+complete -o default -F _pip_completion /usr/bin/python3 -m pip
+# pip bash completion end
+
+eval "$(register-python-argcomplete3 ansible)"
+eval "$(register-python-argcomplete3 ansible-playbook)"
