@@ -145,7 +145,7 @@ done
 	tr ' ' '\n')" scp sftp ssh
 
 
-for file in ~/.{bash_prompt,aliases,functions,path,dockerfunc,extra,exports}; do
+for file in ~/.{bash_prompt,aliases,functions,path,dockerfunc,extra,exports,autocomp}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		# shellcheck source=/dev/null
 		source "$file"
