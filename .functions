@@ -484,3 +484,7 @@ install-appimage() {
 	chmod a+x "$file"
 	mv "$file" "${HOME}/Applications/"
 }
+
+gpip() {
+    PIP_REQUIRE_VIRTUALENV=false pip "$@"
+}
