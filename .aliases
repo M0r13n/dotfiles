@@ -175,5 +175,6 @@ if which batcat &>/dev/null; then
 	alias cat=batcat
 fi
 
-
+# Update & Initialize submodules
 alias subsub="git submodule update --init --recursive && git submodule update --remote"
+

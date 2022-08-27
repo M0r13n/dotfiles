@@ -485,6 +485,12 @@ install-appimage() {
 	mv "$file" "${HOME}/Applications/"
 }
 
+# Install a package globally even if PIP_REQUIRE_VIRTUALENV is set to True
 gpip() {
     PIP_REQUIRE_VIRTUALENV=false pip "$@"
+}
+
+# Search a keyword recursively and ignores case
+grepr(){
+    grep -ri "$1"
 }
