@@ -1085,11 +1085,6 @@ torproxy(){
 
 	hostess add torproxy "$(docker inspect --format '{{.NetworkSettings.Networks.bridge.IPAddress}}' torproxy)"
 }
-traceroute(){
-	docker run --rm -it \
-		--net host \
-		${DOCKER_REPO_PREFIX}/traceroute "$@"
-}
 transmission(){
 	del_stopped transmission
 
