@@ -2,3 +2,6 @@
 
 # Force pip to always use an virtual environment
 export PIP_REQUIRE_VIRTUALENV=true
+
+# Docker rootless
+# export DOCKER_HOST=unix:///run/user/1000/docker.sock
