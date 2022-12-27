@@ -38,10 +38,14 @@ export DOCKER_CONTENT_TRUST=1
 
 # if it's an ssh session export GPG_TTY
 # solves error: "gpg: signing failed: Inappropriate ioctl for device"
-if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+# do this also when on MacOS
+if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]] || [[  "$(uname)" == "Darwin"  ]]; then
 	GPG_TTY=$(tty)
 	export GPG_TTY
 fi
 
 # set xdg data dirs for dmenu to source
 export XDG_DATA_DIRS=/usr/share/
+
+# Disable warning when using a different shell than zsh on MacOS
+export BASH_SILENCE_DEPRECATION_WARNING=1

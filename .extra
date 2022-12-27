@@ -7,3 +7,5 @@ export PIP_REQUIRE_VIRTUALENV=true
 # export PATH=/usr/bin:$PATH
 # export DOCKER_HOST=unix:///run/user/1000/docker.sock
 
+# Adds brew to PATH on MacOS
+eval "$(/opt/homebrew/bin/brew shellenv)"

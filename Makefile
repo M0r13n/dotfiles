@@ -2,7 +2,6 @@ SHELL := bash
 
 .PHONY: all
 all: bin usr dotfiles etc
-	sudo apt install python3-pip python3-argcomplete
 
 .PHONY: bin
 bin: ## Installs the bin directory files.
@@ -37,14 +36,6 @@ dotfiles: ## Installs the dotfiles.
 etc: ## Installs the etc directory files.
 	# sudo mkdir -p /etc/docker/seccomp
 	for file in $(shell find $(CURDIR)/etc -type f -not -name ".*.swp"); do \
-		f=$$(echo $$file | sed -e 's|$(CURDIR)||'); \
-		sudo mkdir -p $$(dirname $$f); \
-		sudo ln -s -f $$file $$f; \
-	done
-
-.PHONY: usr
-usr: ## Installs the usr directory files.
-	for file in $(shell find $(CURDIR)/usr -type f -not -name ".*.swp"); do \
 		f=$$(echo $$file | sed -e 's|$(CURDIR)||'); \
 		sudo mkdir -p $$(dirname $$f); \
 		sudo ln -s -f $$file $$f; \
