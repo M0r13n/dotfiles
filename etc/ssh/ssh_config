@@ -20,7 +20,7 @@ Include /etc/ssh/ssh_config.d/*.conf
 
 AddKeysToAgent yes
 # IgnoreUnknown UseKeychain
-# UseKeychain yes
+UseKeychain yes
 
 # Host foo
 #   HostName foo.com
