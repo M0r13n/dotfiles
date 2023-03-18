@@ -157,8 +157,9 @@ _testmain.go
 *.test
 *.prof
 
-# python virtual env
+# Python
 .venv
+*.pyc
 
 # linux kernel debs
 linux-*.deb
