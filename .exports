@@ -32,8 +32,9 @@ export GDK_DPI_SCALE=0.5
 export QT_DEVICE_PIXEL_RATIO=1.5
 
 # turn on go vendoring experiment
-export GO15VENDOREXPERIMENT=1
+export GO15VENDOREXPERIMENT=0
 
+# set to 1 to prevent Docker frm executing untrusted images
 export DOCKER_CONTENT_TRUST=1
 
 # if it's an ssh session export GPG_TTY

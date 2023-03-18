@@ -4,6 +4,6 @@
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Docker rootless
-# export PATH=/usr/bin:$PATH
-# export DOCKER_HOST=unix:///run/user/1000/docker.sock
+export PATH=/usr/bin:$PATH
+export DOCKER_HOST=unix:///run/user/30000/docker.sock
 
