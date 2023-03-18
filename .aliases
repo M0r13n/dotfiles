@@ -176,4 +176,12 @@ if which batcat &>/dev/null; then
 fi
 
 # Update & Initialize submodules
-alias subsub="git submodule update --init --recursive && git submodule update --remote"
+alias subsub="git submodule update --init --recursive"
+
+# tree
+alias tree1="tree -L 1 --gitignore"
+alias tree2="tree -L 2 --gitignore"
+alias tree3="tree -L 3 --gitignore"
+alias tree4="tree -L 4 --gitignore"
+alias tree5="tree -L 5 --gitignore"
+alias tree6="tree -L 6 --gitignore"
