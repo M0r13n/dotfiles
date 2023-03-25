@@ -512,3 +512,29 @@ activate() {
 		echo "no venv dir found.."
 	fi
 }
+
+# code but with fzf
+fode() {
+	if ! command -v code &> /dev/null; then
+		echo "code not found"
+		exit
+	fi
+	if ! command -v fzf &> /dev/null; then
+		echo "fzf not found"
+		exit
+	fi
+
+	# separate item with NULL character and not with whitespace
+	# --print0 and -0 are needed for this
+	fzf --print0 | xargs -0 -o code
+}
+
+# improved chmod with fuzzy finding
+fzchmod(){
+	if ! command -v fzf &> /dev/null; then
+		echo "fzf not found"
+		exit
+	fi
+
+	fzf --print0 | xargs -0 -o chmod "$1"
+}

@@ -185,3 +185,6 @@ alias tree3="tree -L 3 --gitignore"
 alias tree4="tree -L 4 --gitignore"
 alias tree5="tree -L 5 --gitignore"
 alias tree6="tree -L 6 --gitignore"
+
+# case insensitive gripgrep
+alias rgi="rg -i"
