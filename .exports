@@ -48,4 +48,4 @@ fi
 export XDG_DATA_DIRS=/usr/share/
 
 # tell fzf to respect my .gitignore
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+#export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
