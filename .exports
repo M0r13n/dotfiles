@@ -47,5 +47,5 @@ fi
 # set xdg data dirs for dmenu to source
 export XDG_DATA_DIRS=/usr/share/
 
-# tell fzf to respect my .gitignore
-#export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+# ignore certain directories
+export FZF_DEFAULT_COMMAND='find . \( -path ./.git  -o -path ./.venv -o -path ./venv \) -prune -o -print'
