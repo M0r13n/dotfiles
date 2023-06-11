@@ -1,0 +1,39 @@
+{
+    "cSpell.userWords": [
+        "MKTVIS",
+        "routerboard"
+    ],
+    "workbench.colorTheme": "GitHub Dark Dimmed",
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 1,
+    "extensions.ignoreRecommendations": true,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "workbench.startupEditor": "none",
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/CVS": true,
+        "**/__MACOSX": true
+      },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.hg/store/**": true,
+        "/target/**": true
+      },
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 6000
+}

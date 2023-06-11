@@ -19,7 +19,7 @@ dotfiles: ## Installs the dotfiles.
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
 	done; \
-	
+
 	# add global gitignore
 	ln -s -f $(CURDIR)/gitignore $(HOME)/.gitignore;
 
@@ -28,6 +28,10 @@ dotfiles: ## Installs the dotfiles.
 
 	# make .config dir
 	mkdir -p $(HOME)/.config;
+
+	# symlink VS Code settings JSON
+	mkdir -p $(HOME)/.config/Code/User;
+	ln -sf $(CURDIR)/.config/Code/User/settings.json $(HOME)/.config/Code/User/settings.json;
 
 	# symlink bash_profile
 	ln -sf $(CURDIR)/.bash_profile $(HOME)/.profile;
