@@ -162,6 +162,7 @@ alias curlhead="curl -X HEAD -I"
 
 # Python aliases
 alias python="python3"
+alias ip3="ipython3"
 
 # if exa is installed replace ls with it
 if which exa &>/dev/null; then
