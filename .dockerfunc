@@ -2,6 +2,7 @@
 #!/usr/bin/env bash
 dcleanup(){
 	docker system prune --volumes "$@"
+	docker image prune -a
 }
 
 del_stopped(){
