@@ -1,8 +1,28 @@
+#!/bin/bash
 
-#!/usr/bin/env bash
 dcleanup(){
 	docker system prune --volumes "$@"
 	docker image prune -a
+}
+
+delfi(){
+	# delfi == delete for image
+	local name=$1
+	local containers
+
+	if [[ -z $name ]]; then
+		echo "No image given. Stopping all containers"
+		containers="$(docker ps -a -q)"
+	else
+		containers=$(docker ps -a -q --filter ancestor="${1}")
+	fi
+
+	if [[ -z $name ]]; then
+		return 0
+	fi
+
+	# shellcheck disable=SC2046
+	docker rm $(docker stop "${containers}")
 }
 
 del_stopped(){
