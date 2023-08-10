@@ -192,6 +192,6 @@
 [user]
 	email = github@leonmortenrichter.de
 	name = Leon Morten Richter
-	signingkey = DC00D426A10A6E2B
+	signingkey = 5D82B80298D52893
 [commit]
 	gpgsign = true
