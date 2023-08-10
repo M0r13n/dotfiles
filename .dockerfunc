@@ -1,8 +1,8 @@
 #!/bin/bash
 
 dcleanup(){
-	docker system prune --volumes "$@"
-	docker image prune -a
+	docker system prune -a
+	docker volume prune -a
 }
 
 delfi(){
