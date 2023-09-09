@@ -1,14 +1,10 @@
 {
-    "cSpell.userWords": [
-        "MKTVIS",
-        "routerboard"
-    ],
-    "workbench.colorTheme": "GitHub Dark Dimmed",
     "explorer.confirmDelete": false,
-    "window.zoomLevel": 1,
     "extensions.ignoreRecommendations": true,
     "[python]": {
-        "editor.formatOnType": true
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnSave": true,
     },
     "[shellscript]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -35,5 +31,13 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 6000
+    "files.autoSaveDelay": 6000,
+    "workbench.colorTheme": "Default Dark+",
+    "window.zoomLevel": 1,
+    "autopep8.args": [
+        "--max-line-length=120"
+    ],
+    "flake8.args": [
+        "--max-line-length=120"
+    ]
 }
