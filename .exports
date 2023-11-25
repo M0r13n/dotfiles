@@ -49,3 +49,12 @@ export XDG_DATA_DIRS=/usr/share/
 
 # ignore certain directories
 export FZF_DEFAULT_COMMAND='find . \( -path ./.git  -o -path ./.venv -o -path ./venv \) -prune -o -print'
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Python
+export PATH="$HOME/.local/bin:$PATH"
+
+# Ruby
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
