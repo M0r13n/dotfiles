@@ -33,12 +33,12 @@
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 6000,
     "workbench.colorTheme": "Default Dark+",
-    "window.zoomLevel": 1,
     "autopep8.args": [
         "--max-line-length=120"
     ],
     "flake8.args": [
         "--max-line-length=120"
     ],
-    "python.analysis.autoImportCompletions": true
+    "python.analysis.autoImportCompletions": true,
+    "window.zoomLevel": 1
 }

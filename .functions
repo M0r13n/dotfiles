@@ -204,6 +204,53 @@ getcertnames() {
 	fi
 }
 
+
+# Print a human readable summary of the certificate chain for a given domain
+showcert(){
+	if [ -z "${1}" ]; then
+		echo "ERROR: No domain specified."
+		return 1
+	fi
+
+	if [ -z "${2}" ]; then
+		echo "ERROR: No port specified."
+		return 1
+	fi
+
+   openssl s_client -connect "${1}:${2}" |
+       openssl x509 -text -noout
+
+}
+
+# Encrypt/Decrypt files
+
+enc(){
+	if [ -z "${1}" ]; then
+		echo "ERROR: No file specified."
+		return 1
+	fi
+
+	local filename
+	filename="$(basename -- "${1}")"
+
+	gpg --output "${filename%.*}".enc --symmetric --cipher-algo AES256 "${1}"
+}
+
+dec(){
+	if [ -z "${1}" ]; then
+		echo "ERROR: No file specified."
+		return 1
+	fi
+
+	local filename
+	filename="$(basename -- "${1}")"
+
+	gpg --output "${filename%.*}" --decrypt "${1}"
+
+}
+
+
+
 # `v` with no arguments opens the current directory in Vim, otherwise opens the
 # given location
 v() {
