@@ -40,5 +40,6 @@
         "--max-line-length=120"
     ],
     "python.analysis.autoImportCompletions": true,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "editor.formatOnSave": true
 }
