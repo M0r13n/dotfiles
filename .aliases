@@ -176,6 +176,10 @@ if which batcat &>/dev/null; then
 	alias cat=batcat
 fi
 
+if which btop &>/dev/null; then
+	alias top=btop
+fi
+
 # Update & Initialize submodules
 alias subsub="git submodule update --init --recursive"
 
