@@ -48,8 +48,10 @@ alias md=mkdir
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias g="git"
-alias h="history"
+alias ga="git add"
 alias gc=". /usr/local/bin/gitdate && git commit -v "
+alias h="history"
+alias p="python"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
