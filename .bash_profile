@@ -9,3 +9,6 @@ fi
 # Start keychain - only add each passphrase once after reboot
 # --clear -> passphrases must be re-entered on login, but cron jobs will still have access to the unencrypted keys after the user logs out
 eval "$(keychain --quiet --eval --agents ssh)"
+
+# Enable byobu as a text editor
+# _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
