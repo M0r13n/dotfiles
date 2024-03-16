@@ -334,6 +334,12 @@ repo() {
 	open "$url" &>/dev/null || (echo "Using $(type open) to open URL failed." && exit 1)
 }
 
+# Prune all local branches that do not exist on the remote
+prune-branches(){
+	git fetch -p
+	git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
+}
+
 # Get colors in manual pages
 man() {
 	env \
