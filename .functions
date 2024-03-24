@@ -591,3 +591,17 @@ fzchmod(){
 
 	fzf --print0 | xargs -0 -o chmod "$1"
 }
+
+# Start a background process that sleeps forever but prevents the system from hibernating
+do-not-sleep(){
+	sudo -b /usr/bin/systemd-inhibit \
+		--mode block \
+		--what sleep \
+		--why "manual policy to prevent hibernating" \
+		/usr/bin/sleep infinity
+}
+
+# Get the current battery percentage
+battery(){
+	echo "$(</sys/class/power_supply/BAT0/capacity)%"
+}
