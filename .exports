@@ -49,6 +49,7 @@ export XDG_DATA_DIRS=/usr/share/
 
 # ignore certain directories
 export FZF_DEFAULT_COMMAND='find . \( -path ./.git  -o -path ./.venv -o -path ./venv \) -prune -o -print'
+export FZF_DEFAULT_OPTS='--multi --no-height --extended'
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
