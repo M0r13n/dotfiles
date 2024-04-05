@@ -1,8 +1,11 @@
 #!/bin/bash
 
 dcleanup(){
+	# shellcheck disable=SC2046
     docker stop $(docker ps -a -q)
+	# shellcheck disable=SC2046
 	docker rm $(docker ps -a -q)
+	# shellcheck disable=SC2046
 	docker volume rm $(docker volume -q)
 	docker system prune -a
 	docker volume prune -a
