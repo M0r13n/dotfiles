@@ -3,7 +3,7 @@
     "extensions.ignoreRecommendations": true,
     "[python]": {
         "editor.formatOnType": true,
-        "editor.defaultFormatter": "ms-python.python",
+        "editor.defaultFormatter": "ms-python.autopep8",
         "editor.formatOnSave": true,
     },
     "[shellscript]": {
@@ -18,14 +18,14 @@
         "**/.svn": true,
         "**/CVS": true,
         "**/__MACOSX": true
-      },
+    },
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/node_modules/*/**": true,
         "**/.hg/store/**": true,
         "/target/**": true
-      },
+    },
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
