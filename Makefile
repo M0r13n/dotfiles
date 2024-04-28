@@ -28,6 +28,10 @@ dotfiles: ## Installs the dotfiles.
 
 	# make .config dir
 	mkdir -p $(HOME)/.config;
+	for file in $(shell find $(CURDIR)/.config -name "*"); do \
+		f=$$(basename $$file); \
+		ln -sfn $$file $(HOME)/.config/$$f; \
+	done; \
 
 	# symlink VS Code settings JSON
 	mkdir -p $(HOME)/.config/Code/User;
