@@ -39,10 +39,13 @@ export DOCKER_CONTENT_TRUST=1
 
 # if it's an ssh session export GPG_TTY
 # solves error: "gpg: signing failed: Inappropriate ioctl for device"
-if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
-	GPG_TTY=$(tty)
-	export GPG_TTY
-fi
+# if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+# 	GPG_TTY=$(tty)
+# 	export GPG_TTY
+# fi
+
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # set xdg data dirs for dmenu to source
 export XDG_DATA_DIRS=/usr/share/
