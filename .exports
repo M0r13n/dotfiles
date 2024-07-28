@@ -4,8 +4,8 @@
 shell="$(which bash)";
 export SHELL="$shell";
 
-# Use the Linux TERM
-export TERM="linux"
+# Tell applications to use a nice colorful 256 bit terminal
+export TERM="xterm-256color"
 
 # Make Nano the default editor
 export EDITOR="/usr/bin/nano";
