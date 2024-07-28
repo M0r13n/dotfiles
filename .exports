@@ -4,6 +4,9 @@
 shell="$(which bash)";
 export SHELL="$shell";
 
+# Use the Linux TERM
+export TERM="linux"
+
 # Make Nano the default editor
 export EDITOR="/usr/bin/nano";
 
