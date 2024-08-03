@@ -7,7 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Solarized Light",
-  "ui_font_size": 16,
-  "buffer_font_size": 16
+  "theme": "New Darcula",
+  "ui_font_size": 17,
+  "buffer_font_size": 16,
+  "base_keymap": "VSCode",
+  "autosave": "on_focus_change"
 }
