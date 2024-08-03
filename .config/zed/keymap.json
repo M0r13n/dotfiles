@@ -1,0 +1,19 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: Open Default Keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": { "ctrl-\"": "workspace::NewTerminal" }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-\"": "workspace::NewTerminal"
+    }
+  }
+]
