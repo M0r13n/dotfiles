@@ -34,13 +34,6 @@ dotfiles: ## Installs the dotfiles.
 		ln -s -f $$file $(HOME)/$$f; \
 	done; \
 
-	# make byobu
-	mkdir -p $(HOME)/.byobu;
-	for file in $(shell find $(CURDIR)/.byobu -name "*"); do \
-		f=$$(basename $$file); \
-		ln -sfn $$file $(HOME)/.byobu/$$f; \
-	done; \
-
 	# symlink bash_profile
 	ln -sf $(CURDIR)/.bash_profile $(HOME)/.profile;
 

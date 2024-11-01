@@ -32,7 +32,6 @@
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 6000,
-    "workbench.colorTheme": "Default Dark+",
     "autopep8.args": [
         "--max-line-length=120"
     ],

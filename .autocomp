@@ -15,5 +15,5 @@ _pip_completion()
 complete -o default -F _pip_completion /usr/bin/python3 -m pip
 # pip bash completion end
 
-eval "$(register-python-argcomplete3 ansible)"
-eval "$(register-python-argcomplete3 ansible-playbook)"
+eval "$(register-python-argcomplete ansible)"
+eval "$(register-python-argcomplete ansible-playbook)"
