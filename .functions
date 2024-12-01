@@ -222,6 +222,27 @@ showcert(){
 
 }
 
+getcert(){
+	if [ -z "${1}" ]; then
+		echo "ERROR: No domain specified."
+		return 1
+	fi
+
+	if [ -z "${2}" ]; then
+		echo "ERROR: No port specified."
+		return 1
+	fi
+
+	if [ -z "${3}" ]; then
+		echo "ERROR: No destination path specified."
+		return 1
+	fi
+
+	openssl s_client -connect "${1}:${2}" -showcerts \
+		</dev/null 2>/dev/null \
+		|openssl x509 -outform PEM > "${3}"
+}
+
 # Encrypt/Decrypt files
 
 enc(){
