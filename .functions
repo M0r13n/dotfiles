@@ -637,3 +637,34 @@ fp8(){
 
 	find "$dest" -type f -name "*.py" -exec autopep8 --in-place --aggressive {} +
 }
+
+# Perform a traceroute with more details using TCP
+trtcp(){
+	if [[ -z $1 ]]; then
+		echo "You need to specify a domain or IP address"
+		return 1
+	fi
+
+	if [[ -z $2 ]]; then
+		echo "You need to specify a port"
+		return 1
+	fi
+
+ 	mtr -z 			`# Enable report-style output (one single table)` \
+        -w 			`# Use wide report format` \
+        -b 			`# Show both IP addresses and hostnames` \
+        -c 50 		`# Set the number of pings per hop to 50` \
+        -T 			`# Use TCP instead of ICMP` \
+        -P "$2" 	`# Specify the destination port as 443 (HTTPS)` \
+        "$1" 		`# Target hostname to trace`
+}
+
+trudp(){
+    mtr -z 			`# Enable report-style output (one single table)` \
+        -w 			`# Use wide report format` \
+        -b 			`# Show both IP addresses and hostnames` \
+        -c 50 		`# Set the number of pings per hop to 50` \
+        -u 			`# Use UDP instead of ICMP or TCP` \
+        -P "$2" 	`# Specify the destination port as 443 (HTTPS)` \
+        "$1" 		`# Target hostname to trace`
+}
