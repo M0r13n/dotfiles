@@ -515,11 +515,6 @@ xname() {
 			-e "\${g; p}"
 }
 
-govendorcheck() {
-	# shellcheck disable=SC2046
-	vendorcheck -u ./... | awk '{print $NF}' | sed -e "s#^github.com/jessfraz/$(basename $(pwd))/##"
-}
-
 restart_gpgagent() {
 	# Restart the gpg agent.
 	echo "Restarting gpg-agent and scdaemon..."
