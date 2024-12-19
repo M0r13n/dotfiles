@@ -8,7 +8,9 @@ Requires Watchdog: https://github.com/gorakhargosh/watchdog
 Examples:
     ./autostart.py -p '*.py' -i 'venv/*' flake8 autostart.py --max-line-length 120
     ./autostart.py -p '*.py' -i 'venv/*' mypy ./autostart.py
+    ./autostart.py -p '*.py' -i 'venv/*' "$(which python3)" ./server.py
 """
+import functools
 import pathlib
 import shutil
 import signal
@@ -44,6 +46,25 @@ class FileChangeHandler(PatternMatchingEventHandler):
             self.restart_callback()
 
 
+def rate_limit(min_interval: float):
+    """Decorator to prevent a function from being called more than once every `min_interval` seconds."""
+    def decorator(func):
+        last_called = [0]  # Use a mutable object to allow updates in the closure
+
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            now = time.time()
+            elapsed = now - last_called[0]
+            if elapsed < min_interval:
+                logger.debug(f'Ignoring change: interval threshold lower than {min_interval:.2f}s')
+                return
+            last_called[0] = now
+            return func(*args, **kwargs)
+
+        return wrapper
+    return decorator
+
+
 class ApplicationReloader:
     def __init__(self, script_path: pathlib.Path, args: list[str] = []) -> None:
         self.script_path: pathlib.Path = script_path
@@ -52,9 +73,10 @@ class ApplicationReloader:
 
     def start_app(self) -> None:
         logger.debug(f'Create child process: {str(self.script_path)} [{self.args}]')
-        self.process = subprocess.Popen([sys.executable, str(self.script_path)] + self.args)
+        self.process = subprocess.Popen([str(self.script_path)] + self.args)
         logger.debug(f"Started process with PID: {self.process.pid}")
 
+    @rate_limit(1)
     def restart_app(self) -> None:
         if self.process:
             logger.debug(f"Stopping process with PID: {self.process.pid}")
