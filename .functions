@@ -633,6 +633,22 @@ fp8(){
 	find "$dest" -type f -name "*.py" -exec autopep8 --in-place --aggressive {} +
 }
 
+si(){
+	local dest=$1
+
+	if [[ -z $dest ]]; then
+		echo "You need to specify a project name."
+		return 1
+	fi
+
+	find "$dest" -type f -name "*.py" -exec isort {} +
+}
+
+format(){
+	fp8 "$1"
+	si "$1"
+}
+
 # Perform a traceroute with more details using TCP
 trtcp(){
 	if [[ -z $1 ]]; then
