@@ -70,15 +70,13 @@
         },
         {
             "type": "localip",
-            "key": "│ {#red}CLIENT IP{#white}  │{$1}",
+            "key": "│ {#red}LOCAL IPv4{#white} │{$1}",
             "format": "{ipv4}"
         },
         {
             "type": "localip",
-            "key": "│ {#red}MAC ADDR{#white}   │{$1}",
-            "format": "{mac} ({ifname})",
-            "showIpv4": false,
-            "showMac": true
+            "key": "│ {#red}LOCAL IPv6{#white} │{$1}",
+            "format": "{ipv6}"
         },
         {
             "type": "dns",
