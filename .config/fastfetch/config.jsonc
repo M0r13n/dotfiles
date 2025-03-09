@@ -1,0 +1,188 @@
+// Inspired by https://github.com/usgraphics/TR-100
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": null,
+    "display": {
+        "pipe": false,
+        "key": {
+            "width": 16
+        },
+        "separator": "│ ",
+        "color": {
+            "separator": "white", // Bold
+            "keys": "white"
+        },
+        "percent": {
+            "type": [
+                "bar",
+                "hide-others"
+            ]
+        },
+        "bar": {
+            "borderLeft": "",
+            "borderRight": "",
+            "charElapsed": "█",
+            "charTotal": "░",
+            "width": 40
+        },
+        "constants": [
+            "\u001b[42C"
+        ]
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "┌┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┐"
+        },
+        {
+            "type": "custom",
+            "format": "├┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┤"
+        },
+        {
+            "type": "version",
+            "key": " ",
+            "format": "│                   {#green}FASTFETCH v{version}{#white}                   │"
+        },
+        {
+            "type": "custom",
+            "format": "│                 {#green}TR-100 MACHINE REPORT{#white}                 │"
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┬──────────────────────────────────────────┤"
+        },
+        {
+            "type": "os",
+            "key": "│ {#red}OS{#white}         │{$1}"
+        },
+        {
+            "type": "kernel",
+            "key": "│ {#red}KERNEL{#white}     │{$1}"
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "title",
+            "key": "│ {#red}HOSTNAME{#white}   │{$1}",
+            "format": "{host-name}"
+        },
+        {
+            "type": "localip",
+            "key": "│ {#red}CLIENT IP{#white}  │{$1}",
+            "format": "{ipv4}"
+        },
+        {
+            "type": "localip",
+            "key": "│ {#red}MAC ADDR{#white}   │{$1}",
+            "format": "{mac} ({ifname})",
+            "showIpv4": false,
+            "showMac": true
+        },
+        {
+            "type": "dns",
+            "key": "│ {#red}DNS{#white}        │{$1}",
+            "showType": "ipv4"
+        },
+        {
+            "type": "title",
+            "key": "│ {#red}USER{#white}       │{$1}",
+            "format": "{user-name}"
+        },
+        {
+            "type": "host",
+            "key": "│ {#red}MACHINE{#white}    │{$1}",
+            "format": "{name}"
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "cpu",
+            "key": "│ {#red}PROCESSOR{#white}  │{$1}",
+            "format": "{name}"
+        },
+        {
+            "type": "cpu",
+            "key": "│ {#red}CORES{#white}      │{$1}",
+            "format": "{cores-physical} PHYSICAL CORES / {cores-logical} THREADS",
+            "showPeCoreCount": false
+        },
+        {
+            "type": "loadavg",
+            "compact": false,
+            "key": "│ {#red}LOAD{#white}  {duration>2}m  │{$1}" // pad duration to 2 chars
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "memory",
+            "key": "│ {#red}MEMORY{#white}     │{$1}",
+            "format": "{used} / {total} [{percentage}]",
+            "percent": {
+                "type": [
+                    "num"
+                ]
+            }
+        },
+        {
+            "type": "memory",
+            "key": "│ {#red}USAGE{#white}      │{$1}",
+            "format": "",
+            "percent": {
+                "type": [
+                    "bar",
+                    "hide-others"
+                ]
+            }
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "disk",
+            "key": "│ {#red}VOLUME{#white}     │{$1}",
+            "format": "{size-used} / {size-total} [{size-percentage}]",
+            "folders": "/",
+            "percent": {
+                "type": [
+                    "num"
+                ]
+            }
+        },
+        {
+            "type": "disk",
+            "key": "│ {#red}DISK USAGE{#white} │{$1}",
+            "format": "",
+            "percent": {
+                "type": [
+                    "bar",
+                    "hide-others"
+                ]
+            }
+        },
+        {
+            "type": "custom",
+            "format": "├────────────┼──────────────────────────────────────────┤"
+        },
+        {
+            "type": "users",
+            "key": "│ {#red}LAST LOGIN{#white} │{$1}",
+            "format": "{login-time}{?client-ip} ({client-ip})",
+            "myselfOnly": true
+        },
+        {
+            "type": "uptime",
+            "key": "│ {#red}UPTIME{#white}     │{$1}"
+        },
+        {
+            "type": "custom",
+            "format": "└────────────┴──────────────────────────────────────────┘"
+        }
+    ]
+}
