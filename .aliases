@@ -166,9 +166,9 @@ alias curlhead="curl -X HEAD -I"
 alias python="python3"
 alias ip3="ipython3"
 
-# if exa is installed replace ls with it
-if which exa &>/dev/null; then
-	alias ls=exa
+# if eza is installed replace ls with it
+if which eza &>/dev/null; then
+	alias ls=eza
 fi
 
 # if batcat (bat) is installed replace cat with it
