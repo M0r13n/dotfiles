@@ -679,3 +679,25 @@ trudp(){
         -P "$2" 	`# Specify the destination port as 443 (HTTPS)` \
         "$1" 		`# Target hostname to trace`
 }
+
+# Get the last N changed files in a given directory
+lastchanged(){
+	path="${1}"
+	if [[ -z $1 ]]; then
+		path="."
+	fi
+
+	num_lines="${2}"
+	if [[ -z $2 ]]; then
+		num_lines=10
+	fi
+
+	echo "Last ${num_lines} file(s) changed in $(realpath ${path}):"
+	find "${path}" -type f 					`# find all files (files only)` \
+		-printf '%T@ %p\n' 2>&1 |			`# print output with leading timestamp` \
+		grep -v 'Permission denied$'|		`# ignore permission denied errors` \
+		sort -n |							`# sort by timestamp` \
+		tail "-${num_lines}" |				`# limit result to last N lines` \
+		cut -d' ' -f2- |					`# remove timestamp again` \
+		xargs ls -l -t						`# pipe to ls for metadata`
+}
