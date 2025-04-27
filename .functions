@@ -255,6 +255,7 @@ enc(){
 	filename="$(basename -- "${1}")"
 
 	gpg --output "${filename%.*}".enc --symmetric --cipher-algo AES256 "${1}"
+
 }
 
 dec(){
@@ -270,7 +271,11 @@ dec(){
 
 }
 
+enc_text(){
+	gpg --armor --symmetric --cipher-algo AES256
 
+	echo "decrypt with: gpg --decrypt"
+}
 
 # `v` with no arguments opens the current directory in Vim, otherwise opens the
 # given location
@@ -682,18 +687,18 @@ trudp(){
 
 # Get the last N changed files in a given directory
 lastchanged(){
-	path="${1}"
+	local dest=$1
 	if [[ -z $1 ]]; then
-		path="."
+		dest="."
 	fi
 
-	num_lines="${2}"
+	local num_lines=${2}
 	if [[ -z $2 ]]; then
 		num_lines=10
 	fi
 
-	echo "Last ${num_lines} file(s) changed in $(realpath ${path}):"
-	find "${path}" -type f 					`# find all files (files only)` \
+	echo "Last ${num_lines} file(s) changed in $(realpath "${dest}"):"
+	find "${dest}" -type f 					`# find all files (files only)` \
 		-printf '%T@ %p\n' 2>&1 |			`# print output with leading timestamp` \
 		grep -v 'Permission denied$'|		`# ignore permission denied errors` \
 		sort -n |							`# sort by timestamp` \
