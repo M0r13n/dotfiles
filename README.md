@@ -28,6 +28,12 @@ $ make
 
 This will create symlinks from this repo to your home folder.
 
+##### 3rd Party packages
+
+You may want to install the following 3rd party packages for everything to work:
+
+`sudo apt install fzf tree eza`
+
 ### Customizing
 You can store additional things inside a .extra file. This will be sourced by `.bashrc` during init. 
 You could place your git config data in it for example:
