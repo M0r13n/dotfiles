@@ -52,6 +52,7 @@ alias ga="git add"
 alias gc=". /usr/local/bin/gitdate && git commit -v "
 alias h="history"
 alias p="python"
+alias n="nano"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
