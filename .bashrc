@@ -103,7 +103,7 @@ fi
 
 
 
-# GPG 
+# GPG
 if command -v gpg-connect-agent >/dev/null; then
 	# Start the gpg-agent if not already running
 	if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
@@ -153,3 +153,5 @@ for file in ~/.{bash_prompt,aliases,functions,path,dockerfunc,extra,exports,auto
 done
 unset file
 
+# https://github.com/junegunn/fzf/issues/2542
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash

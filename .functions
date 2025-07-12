@@ -613,6 +613,43 @@ fzchmod(){
 	fzf --print0 | xargs -0 -o chmod "$1"
 }
 
+ffind(){
+	if ! command -v fzf &> /dev/null; then
+		echo "fzf not found"
+		exit
+	fi
+
+	local dest=$1
+
+	if [[ -z $dest ]]; then
+		echo "You need to specify a path"
+		return 1
+	fi
+
+	find "$dest" -type f | fzf --preview 'cat {}'
+}
+
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
+
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+fapt() {
+    local package
+    apt-cache search . | fzf --preview 'apt-cache show {1}' --preview-window=right:60%:wrap | cut -d' ' -f1
+}
+
 # Start a background process that sleeps forever but prevents the system from hibernating
 do-not-sleep(){
 	sudo -b /usr/bin/systemd-inhibit \
