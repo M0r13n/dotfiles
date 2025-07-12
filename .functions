@@ -626,7 +626,7 @@ ffind(){
 		return 1
 	fi
 
-	find "$dest" -type f | fzf --preview 'cat {}'
+	find "$dest" -type f | fzf --preview 'batcat -f {}'
 }
 
 # fd - cd to selected directory
