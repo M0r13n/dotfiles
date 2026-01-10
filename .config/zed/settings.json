@@ -4,12 +4,42 @@
 // documentation: https://zed.dev/docs/configuring-zed
 //
 // To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
-// from the command palette or from `Zed` application menu.
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "theme": "New Darcula",
-  "ui_font_size": 17,
-  "buffer_font_size": 16,
-  "base_keymap": "VSCode",
-  "autosave": "on_focus_change"
+  "disable_ai": true,
+  "agent": {
+    "enable_feedback": false,
+    "single_file_review": false,
+    "button": false,
+    "model_parameters": []
+  },
+  "toolbar": {
+    "agent_review": false
+  },
+  "format_on_save": "on",
+  "formatter": "language_server",
+  "ssh_connections": [],
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false,
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["ty", "!basedpyright"],
+      "formatter": {
+        "external": {
+              "command": "/home/ubuntu/.local/share/tools_venv/bin/autopep8",
+              "arguments": ["-"]
+        }
+      }
+    },
+  },
 }
