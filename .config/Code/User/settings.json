@@ -6,9 +6,6 @@
         "editor.defaultFormatter": "ms-python.autopep8",
         "editor.formatOnSave": true,
     },
-    "[shellscript]": {
-        "editor.defaultFormatter": "foxundermoon.shell-format"
-    },
     "git.openRepositoryInParentFolders": "never",
     "workbench.startupEditor": "none",
     "files.exclude": {
@@ -35,10 +32,22 @@
     "autopep8.args": [
         "--max-line-length=120"
     ],
-    "flake8.args": [
-        "--max-line-length=120"
-    ],
     "python.analysis.autoImportCompletions": true,
-    "window.zoomLevel": 1,
-    "editor.formatOnSave": true
+    "window.zoomLevel": 1.5,
+    "editor.formatOnSave": true,
+    "makefile.configureOnOpen": false,
+    // Disable AI features
+    "chat.agent.enabled": false,
+    "chat.disableAIFeatures": true,
+    // Make the terminal usable
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.enableFileLinks": "off",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.enablePersistentSessions": false,
+    "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+    "terminal.integrated.smoothScrolling": false,
+    "terminal.integrated.suggest.enabled": false,
+    "terminal.integrated.shellIntegration.enabled": false,
+    "terminal.integrated.scrollback": 10000
 }
