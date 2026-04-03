@@ -135,6 +135,8 @@
 
 	# Detect copies as well as renames.
 	renames = copies
+        # Highlight white space changes
+        wsErrorHighlight = all
 
 [diff "bin"]
 
